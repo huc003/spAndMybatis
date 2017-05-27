@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import com.example.requestModel.DSystemRequestModel;
-import com.example.service.SystemService;
+import com.example.requestModel.UserRequestModel;
+import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,20 +10,20 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Created by huc on 2017/5/25.
- * 系统参数
+ * Created by huc on 2017/5/27.
+ * 用户信息
  */
 @RestController
-@RequestMapping("/system")
-public class SystemController {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
-    private SystemService systemService;
+    private UserService userService;
 
-    @RequestMapping("/system_list")
-    public Map<String,Object> systemList(DSystemRequestModel system){
+    @RequestMapping("/login")
+    public Map<String,Object> login(UserRequestModel requestModel){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
-        resultMap.putAll(systemService.systemList(system));
+        resultMap.putAll(userService.userInfoByUserName(requestModel));
         return resultMap;
     }
 }

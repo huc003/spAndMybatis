@@ -2,7 +2,7 @@ package com.example.model;
 
 import java.io.Serializable;
 
-public class System implements Serializable {
+public class DSystem implements Serializable {
     private Integer id;
 
     private String name;
@@ -86,7 +86,7 @@ public class System implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        System other = (System) that;
+        DSystem other = (DSystem) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getNid() == null ? other.getNid() == null : this.getNid().equals(other.getNid()))
